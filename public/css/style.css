@@ -1,0 +1,30 @@
+/*body for index*/
+body{
+   font-family:Arial,Arial, Helvetica, sans-serif;
+    margin:40px;
+    background-color: rgb(236, 29, 29);
+}
+/*styling for image in index*/
+#logo{
+    background-image:url("/images/OKCLogo.jpg");
+    width:140px;
+    height:125px;
+    display:block;
+    margin:0 auto;
+    background-size:cover;
+    background-repeat: no-repeat;
+
+}
+/*styling for body of chart.ejs graph*/
+/*styling for a centre box*/
+.box{
+    max-width:800px;
+    margin:40px auto
+}
+.form-control{
+    width:100%;
+}
+h1,h3,hr{
+    text-align: center;
+    margin-top: 20px;
+}

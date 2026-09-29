@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs")%>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+            <h1>Oklahoma City Thunder Record</h1>
+            <main class="form-container w-100 m-auto">
+                <div id="logo" class="mb-4"></div>
+                <% records.forEach( r=> { %> <!--loop through each record -->
+                    <!--bootstrap cards for displaying the data-->
+                    <div class="card text-bg-warning mb-3 mx-auto" style="max-width: 18rem;">
+                        <div class="card-header">Year: <%= r.year %>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Record card</h5>
+                            <ul>
+                                <!--show number of wins-->
+                                <li class="card-text">Wins: <%= r.wins %>
+                                </li>
+
+                                <!--show number of losses-->
+                                <li class="card-text">Losses: <%= r.losses %>
+                                </li>
+
+                                <!--show the seed position-->
+                                <li class="card-text">Seed: <%= r.seed %>
+                                </li>
+
+                                <!--show where in the playoff they finished-->
+                                <li class="card-text">Playoff Finish: <%= r.playoffFinish %>
+                                </li>
+
+                                <!--show number of expected wins and losses-->
+                                <li class="card-text">Expected W-L: <%= r.expectedW_L %>
+                                </li>
+                            </ul>
+                            <!-- edit Oklahoma City Thunder record based on year-->
+                            <form method="GET" action="/editRecords/<%= r._id %>">
+                                <button class="btn btn-primary w-100 py-2 mb-2" type="submit">Edit</button>
+                            </form>
+                            <!--delete form, request delete based on record's year-->
+                            <form method="POST" action="/delete/<%= r._id %>">
+                                <button class="btn btn-primary w-100 py-2" type="submit"
+                                    onclick="return confirm('Sure?')">Delete</button><!--confirm before deleting record-->
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+            </main>
+            <%- include("./partials/footer.ejs")%>
+    </body>
+
+</html>

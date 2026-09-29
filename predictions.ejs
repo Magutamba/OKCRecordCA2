@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <%- include("./partials/head.ejs")%>
+    <body>
+        <%- include("./partials/nav.ejs")%>
+        <h1>Add new record for the Oklahoma City Thunder before 2019-2020 or predict 2025-2026 onwards</h1>
+        <main class="form-container w-100 m-auto">
+             <!--form for user to add records which will be using that record's year-->
+            <form method="POST" action="/records">
+                   <!--code from bootstrap for list-numbers-->
+                <ol class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Year</div>
+                        <input name="year" placeholder="format(2022-2023)" type="text" required>
+                        </div> 
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Wins</div>
+                        <input name="wins" type="number" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Losses</div>
+                        <input name="losses" type="number" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Seed</div>
+                        <input name="seed" type="number" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Playoff Finish</div>
+                        <!--select code from w3 schools-->
+                        <select name="playoffFinish" class="form-control" required>
+                            <option value="" disabled selected>Select playoff finish</option>
+                            <option value="Did not qualify">Did not qualify</option>
+                            <option value="First Round">First Round</option>
+                            <option value="Conference semifinals">Conference semifinals</option>
+                            <option value="NBA champions">NBA champions</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Expected W-L</div>
+                        <input name="expectedW_L" placeholder="format (74-8)" type="text" required>
+                        </div>
+                    </li>
+                </ol>
+                     <button class="btn btn-primary w-100 py-2" type="submit">Save</button><!--save new record-->
+               
+            </form>
+       
+        </main>
+       <%- include("./partials/footer.ejs")%>
+    </body>
+    </html>
+
+    

@@ -1,0 +1,25 @@
+<!--nav partial-->
+<nav>
+    <!--Code for nav bar from bootstrap, press button to go from Main page to chart of record or prediction and vice versa -->
+    <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist"
+        style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+        <li class="nav-item" role="presentation">
+            <!--highlight if this is the current page is in use-->
+            <a href="/" class="nav-link rounded-5 <%= currentPath === '/' ? 'active' : '' %>"
+                aria-selected="<%= currentPath==="/" %>">Main Page</a>
+
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <!--highlight if this is the current page in use-->
+            <a href="/chart" class="nav-link rounded-5 <%= currentPath === '/chart' ? 'active' : '' %>"
+                aria-selected="<%= currentPath ==='/chart' %>">Chart of Records</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <!--highlight if this is the current page in use-->
+            <a href="/predictions" class="nav-link rounded-5 <%= currentPath ==='/predictions' ? 'active': '' %>"
+                aria-selected="<%= currentPath ==='/predictions' %>">Add Predictions</a>
+        </li>
+    </ul>
+</nav>

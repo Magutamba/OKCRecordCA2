@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs")%>
+
+    <body>
+        <h1>Edit Oklahoma City Thunder records</h1>
+        <main class="form-container w-100 m-auto">
+            <!--form for user to edit records which will be updated using that record's year-->
+            <form method="POST" action="/records/<%= record._id %>">
+                <!--code from bootstrap for list-numbers-->
+                <ol class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Year</div>
+                            <input name="year" placeholder="format(2022-2023)" type="text" value="<%= record.year %>"
+                                required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Wins</div>
+                            <input name="wins" type="number" value="<%= record.wins%>" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Losses</div>
+                            <input name="losses" type="number" value="<%= record.losses %>" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Seed</div>
+                            <input name="seed" type="number" value="<%= record.seed %>" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Playoff Finish</div>
+                            <select name="playoffFinish" required>
+                                <option value="Did not qualify" <%=record.playoffFinish==='Did not qualify' ? 'selected'
+                                    : '' %>>Did not qualify</option>
+                                <option value="First Round" <%=record.playoffFinish==='First Round' ? 'selected' : '' %>
+                                    >First Round</option>
+                                <option value="Conference semifinals" <%=record.playoffFinish==='Conference semifinals'
+                                    ? 'selected' : '' %>>Conference semifinals</option>
+                                <option value="NBA champions" <%=record.playoffFinish==='NBA champions' ? 'selected'
+                                    : '' %>>NBA champions</option>
+                            </select>
+                            
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Expected W-L</div>
+                            <input name="expectedW_L" type="text" value="<%= record.expectedW_L %>" required>
+                        </div>
+                    </li>
+                </ol>
+                <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Edit</button><!--edit existing records-->
+            </form>
+
+        </main>
+        <%- include("./partials/footer.ejs")%>
+    </body>
+
+</html>
